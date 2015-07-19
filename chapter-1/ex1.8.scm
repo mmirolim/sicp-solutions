@@ -10,8 +10,12 @@
 
 ;; improve guess with Newton method
 (define (improve guess x)
-  (/ (+ (/ x (* guess guess)) (* 2 guess)) 3))
+  (/ (+ (/ x (pow guess 2)) (* 2 guess)) 3))
 
 ;; check guess for required precision
 (define (good-enough guess x)
-  (< (abs (- (* guess guess guess) x)) 0.001))
+  (< (abs (- (pow guess 3) x)) 0.001))
+
+;; pow func
+(define (pow x y)
+  (* x (if (> y 1) (pow x (- y 1)) 1)))
