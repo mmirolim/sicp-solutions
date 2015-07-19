@@ -16,6 +16,6 @@
 (define (good-enough guess x)
   (< (abs (- (pow guess 3) x)) 0.001))
 
-;; pow func
+;; pow func for non negative numbers > 0
 (define (pow x y)
   (* x (if (> y 1) (pow x (- y 1)) 1)))
